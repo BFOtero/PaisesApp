@@ -1,0 +1,36 @@
+<div class="grid justify-center h-screen content-center" *ngIf="!pais; else infoPais" >
+    <div class=" relative bg-white w-40 h-40 rounded-full">
+        <span class=" absolute w-full h-full border-2 border-red-200 rounded-full"></span>
+        <span class=" absolute w-full h-full border-t-2 border-red-600 animate-spin rounded-full"></span>
+    </div>
+</div>
+
+<ng-template #infoPais>
+    <div  class="flex flex-col md:flex-row h-auto border bg-slate-400 p-2 my-0">
+        <div class="flex flex-col items-center md:self-center  w-full md:w-1/2 bg-slate-400 ">
+            <span class=" pl-4 text-5xl font-bold"> Pais: 
+            </span>
+            <p class="pl-4 text-3xl font-semibold">
+                {{pais.name.common}}
+            </p>
+        </div>
+        <div class="flex self-center w-full md:w-1/2 drop-shadow-2xl">
+            <img [src]="pais.flags.svg" class="h-3/4 w-full md:w-full md:h-3/4 " alt="">    
+        </div>
+    </div>
+    <div  class="flex flex-col md:flex-row justify-center h-auto bg-slate-400 p-2 my-0">
+        <div class="flex flex-col  w-full md:w-1/2 bg-slate-400 border ">
+            <h2 class="text-3xl font-semibold"> Informacion: </h2>
+            <span class="flex text-lg px-3 border border-bla rounded font-bold justify-between">Poblacion: <p class="font-semibold text-right ">{{pais.population | number}}</p></span>
+            <span class="flex text-lg px-3 border border-bla rounded font-bold justify-between">Capital: <p class="font-semibold text-right ">{{pais.capital}}</p></span>
+            <span class="flex text-lg px-3 border border-bla rounded font-bold justify-between">Codigo alpha3: <p class="font-semibold text-right ">{{pais.cca3}}</p></span>
+            <span class="flex text-lg px-3 border border-bla rounded font-bold justify-between">Codigo Numerico: <p class="font-semibold text-right ">{{pais.ccn3}}</p></span>
+        </div>
+        <div class="flex flex-col  w-full md:w-1/2 bg-slate-400 border ">
+            <h2 class="text-3xl font-semibold"> Traducciones: </h2>
+            <div class="flex flex-wrap">
+                <span *ngFor="let transla of badges.slice(0, 10)" class="flex text-white rounded-lg bg-blue-500 px-3 py-1 m-1 "> {{transla.official}} </span>
+            </div>
+        </div>
+    </div>
+</ng-template>

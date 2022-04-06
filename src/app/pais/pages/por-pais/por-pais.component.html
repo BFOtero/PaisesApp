@@ -1,0 +1,43 @@
+<div class="grid auto-rows-max pl-8 ">
+
+        <app-pais-input
+        (onEnter)="buscar( $event )"
+        (onDebounce)="sugerencias($event)"
+        placeHolderTermino="Buscar pais..."
+        tituloPagina="Por Pais"
+        >
+        </app-pais-input>
+    
+    <ul 
+        *ngIf="mostrarSug"
+        class="flex flex-col w-full ">
+        <a 
+            *ngFor="let pais of paisesSugeridos"
+            [routerLink]="['/pais', pais.cca2]">
+            <li  
+                class="flex mx-5 mr-12  px-8 py-4 border text-lg font-semibold cursor-pointer hover:bg-gray-200 ">
+                 {{pais.name.common}}
+            </li>
+            
+        </a>
+        <li 
+            (click)="buscarSugerido(termino)"
+            class="flex mx-5 mr-12  px-8 py-4 border text-lg font-semibold cursor-pointer hover:bg-gray-200 ">
+            <a >
+               Buscar todos los paises con el termino: "{{ termino }}"
+            </a>
+        </li>
+    
+    </ul>
+    
+    <div class="w-full pl-4 pr-11" *ngIf="hayError">
+        <p class="w-full bg-red-200 text-rose-900 rounded-md py-4 px-8 font-semibold text-lg flex flex-wrap">
+            No existe el pais con el termino {{terminoError}}
+        </p>
+    </div>
+
+    <div class="grid w-full max-h-96 mb-10 border overflow-auto " *ngIf="!hayError">
+      <app-pais-tabla [terminos]="paises"></app-pais-tabla>
+    </div>
+
+</div>

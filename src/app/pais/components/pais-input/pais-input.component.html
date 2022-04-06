@@ -1,0 +1,19 @@
+<div class="grid pr-8">
+    <div class="border-b-4 border-gray-500">
+        <p class="text-4xl text-center font-bold py-8 ">{{tituloPagina}}</p>
+    </div>
+    <div class="pb-0">
+        <div class="px-4">
+            <form (submit)="buscar()">
+                <input type="text"
+                       autocomplete="off"
+                       name="termino"
+                       class="px-4 mt-8 text-start py-2 border-4 border-gray-500 text-md xl:text-xl cursor-pointer rounded w-full"
+                       [(ngModel)]="termino"
+                       placeholder= {{placeHolderTermino}}
+                       (input)="teclaPresionada($event)"
+                       >
+            </form>
+        </div>
+    </div>
+</div>

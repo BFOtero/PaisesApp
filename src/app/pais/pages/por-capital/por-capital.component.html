@@ -1,0 +1,20 @@
+<div class="grid auto-rows-max pl-8 ">
+    <app-pais-input
+    (onEnter)="buscar( $event )"
+    (onDebounce)="sugerencias($event)"
+    placeHolderTermino="Buscar capital..."
+    tituloPagina="Por Capital"
+    >
+    </app-pais-input>
+    
+    <div class="w-full pl-4 pr-11" *ngIf="hayError">
+        <p class="w-full bg-red-200 text-rose-900 rounded-md py-4 px-8 font-semibold text-lg flex flex-wrap">
+            No existe el pais con el termino {{terminoError}}
+        </p>
+    </div>
+
+    <div class="grid auto-rows-max w-full h-full mb-10 " *ngIf="!hayError">
+      <app-pais-tabla [terminos]="capitales"></app-pais-tabla>
+    </div>
+
+</div>

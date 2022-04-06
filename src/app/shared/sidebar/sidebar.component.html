@@ -1,0 +1,29 @@
+<div class="grid grid-cols-5 auto-rows-max w-full h-full px-8 ">
+    <div class=" grid col-span-5 border-b-4 row-span-1 border-gray-500 pb-9">
+        <p class="text-4xl text-center font-bold pt-8">Busquedas</p>
+    </div>
+    <div class=" grid pt-8 col-span-5 xl:col-span-3 xl:col-start-2 row-span-3 px-8 w-full ">
+        <ul class="w-full ">
+            <li 
+                routerLink=""
+                routerLinkActive="active"
+                [routerLinkActiveOptions]="{ exact:true }"
+                class="grid text-center py-2 border-4 border-blue-500 text-blue-500 text-md xl:text-xl font-bold cursor-pointer rounded-lg place-content-center hover:bg-blue-500 mt-3 hover:text-white ">
+                Buscar por pais
+            </li>
+            <li 
+                routerLink="region"
+                routerLinkActive="active"
+                class="grid text-center py-2 border-4 border-blue-500 text-blue-500 text-md xl:text-xl font-bold cursor-pointer rounded-lg place-content-center hover:bg-blue-500 mt-3 hover:text-white ">
+                Buscar por region
+            </li>
+            <li 
+                routerLink="capital"
+                routerLinkActive="active"
+                class="grid text-center py-2 border-4 border-blue-500 text-blue-500 text-md xl:text-xl font-bold cursor-pointer rounded-lg place-content-center hover:bg-blue-500 mt-3 hover:text-white ">
+                Buscar por capital
+            </li>            
+        </ul>
+    </div>
+
+</div>
